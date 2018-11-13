@@ -11,4 +11,6 @@ onmessage = function (event) {
   postMessage({step:1,data:new Date()});
   //postMessage---主、子线程数据传输的函数，可多次执行
   postMessage({step:2,data:couter(event.data)});
+    //postMessage---主、子线程数据传输的函数，可多次执行
+  postMessage({step:3,data:'测试 terminate() 的功能'});
 }
