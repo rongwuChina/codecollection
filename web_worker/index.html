@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>h5-web worker</title>
+</head>
+<script>
+  //浏览器启动新的js引擎---打开同域名下的js文件
+  var worker = new Worker('./counter.js');
+  //主线程向子线程传输数据----postMessage
+  worker.postMessage(40);
+  //监听子线程向主线程传输数据----message事件
+  worker.addEventListener('message',function(e){
+  e.data.step==1?
+    document.getElementById('contain1').innerText=e.data.data
+	:
+	document.getElementById('contain2').innerText=e.data.data
+  });
+</script>
+
+<body>
+  <h2>
+    实现浏览器多线程
+  </h2>
+  <div id="contain1">
+
+  </div>
+    <div id="contain2">
+
+  </div>
+</body>
+
+</html>
