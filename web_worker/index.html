@@ -18,7 +18,9 @@
     document.getElementById('contain1').innerText=e.data.data
 	:
 	document.getElementById('contain2').innerText=e.data.data
+ e.data.step==3? worker.terminate():null;
   });
+  
 </script>
 
 <body>
@@ -28,8 +30,11 @@
   <div id="contain1">
 
   </div>
-    <div id="contain2">
+  <div id="contain2">
 
+  </div>
+  <div id="contain3">
+	step===3 被terminate阻断
   </div>
 </body>
 
